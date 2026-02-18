@@ -6,10 +6,10 @@ import pytz
 from datetime import datetime, timedelta # Cần phải import thêm timedelta ở đầu file
 import time # Nhớ thêm import này ở đầu file nếu chưa có
 
-# Tên file lưu trữ các link đã gửi (Trạng thái)
+# Tên file lưu trữ các link đã gửi (Trạng thái) ##########################################Chỉnh sửa lần 1 18/02/2026
 SENT_LINKS_FILE = 'sent_links.txt' 
 
-# --- CẤU HÌNH ---------------------
+# --- CẤU HÌNH ---------------------------------------------------
 # Giới hạn độ tuổi tối đa của bài viết được phép gửi (tính theo giờ)
 # Nếu bài báo cũ hơn 12 tiếng, bot sẽ bỏ qua
 MAX_AGE_HOURS = 12
