@@ -31,6 +31,25 @@ RSS_SOURCES = [
     "https://cafef.vn/thi-truong.rss",
     "https://cafef.vn/tin-tuc-du-an.rss",
 
+    #Nguoiquansat
+    "https://nguoiquansat.vn/rss/chung-khoan",
+    "https://nguoiquansat.vn/rss/chung-khoan/chuyen-dong-thi-truong",
+    "https://nguoiquansat.vn/rss/chung-khoan/doanh-nghiep-az",
+    "https://nguoiquansat.vn/rss/chung-khoan/cau-chuyen-dau-tu",
+    "https://nguoiquansat.vn/rss/bat-dong-san",
+    "https://nguoiquansat.vn/rss/bat-dong-san/thi-truong-doanh-nghiep",
+    "https://nguoiquansat.vn/rss/bat-dong-san/ha-tang-chinh-sach",
+    "https://nguoiquansat.vn/rss/tai-chinh-ngan-hang",
+    "https://nguoiquansat.vn/rss/tai-chinh-ngan-hang/ngan-hang",
+    "https://nguoiquansat.vn/rss/tai-chinh-ngan-hang/vang-ty-gia",
+    "https://nguoiquansat.vn/rss/tai-chinh-ngan-hang/tai-san-so",
+    "https://nguoiquansat.vn/rss/doanh-nghiep",
+    "https://nguoiquansat.vn/rss/doanh-nghiep/doanh-nhan",
+    "https://nguoiquansat.vn/rss/the-gioi",
+    "https://nguoiquansat.vn/rss/the-gioi/tai-chinh-quoc-te",
+    "https://nguoiquansat.vn/rss/thi-truong",
+    "https://nguoiquansat.vn/rss/vi-mo",
+
      # --- NGUỒN TỪ VIETSTOCK ---
     # 1. Chứng Khoán (9 nguồn)
     "https://vietstock.vn/739/chung-khoan/giao-dich-noi-bo.rss",
@@ -102,7 +121,27 @@ RSS_SOURCES = [
     "https://nhipsongkinhdoanh.vn/rss/tai-chinh-6.rss", # Chỉ giữ lại 1 lần
     "https://nhipsongkinhdoanh.vn/rss/doanh-nghiep-7182.rss",
     "https://nhipsongkinhdoanh.vn/rss/kinh-doanh-11.rss",
-    
+    #Investing.com
+    "https://vn.investing.com/rss/commodities_Metals.rss",
+    "https://vn.investing.com/rss/commodities_Energy.rss",
+    "https://vn.investing.com/rss/commodities_Agriculture.rss",
+    "https://vn.investing.com/rss/market_overview_investing_ideas.rss",
+    "https://vn.investing.com/rss/stock_Stocks.rss",
+    "https://vn.investing.com/rss/stock_Indices.rss",
+    "https://vn.investing.com/rss/market_overview_Fundamental.rss",
+    "https://vn.investing.com/rss/market_overview_Technical.rssv",
+    "https://vn.investing.com/rss/market_overview_Opinion.rss",
+    "https://vn.investing.com/rss/news_14.rss",
+    "https://vn.investing.com/rss/news_287.rss", 
+    "https://vn.investing.com/rss/news_25.rss",
+    "https://vn.investing.com/rss/news_11.rss"
+    #MarketTimes
+    "https://markettimes.vn/rss/kinh-doanh",
+    "https://markettimes.vn/rss/tai-chinh",
+    "https://markettimes.vn/rss/bat-dong-san",
+    "https://markettimes.vn/rss/cong-nghe",
+    "https://markettimes.vn/rss/nganh-hang",
+    "https://markettimes.vn/rss/the-gioi",
     # --- NGUỒN MỚI TỪ DÂN TRÍ ---
     "https://dantri.com.vn/rss/gia-vang.rss",
     "https://dantri.com.vn/rss/tam-diem.rss",
