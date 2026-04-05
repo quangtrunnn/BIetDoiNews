@@ -129,12 +129,12 @@ RSS_SOURCES = [
     "https://vn.investing.com/rss/stock_Stocks.rss",
     "https://vn.investing.com/rss/stock_Indices.rss",
     "https://vn.investing.com/rss/market_overview_Fundamental.rss",
-    "https://vn.investing.com/rss/market_overview_Technical.rssv",
+    "https://vn.investing.com/rss/market_overview_Technical.rss",
     "https://vn.investing.com/rss/market_overview_Opinion.rss",
     "https://vn.investing.com/rss/news_14.rss",
     "https://vn.investing.com/rss/news_287.rss", 
     "https://vn.investing.com/rss/news_25.rss",
-    "https://vn.investing.com/rss/news_11.rss"
+    "https://vn.investing.com/rss/news_11.rss",
     #MarketTimes
     "https://markettimes.vn/rss/kinh-doanh",
     "https://markettimes.vn/rss/tai-chinh",
