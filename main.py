@@ -302,33 +302,37 @@ def get_news():
    
           
 
-# --- HÀM GỬI TIN ---
 def send_telegram(news_items, time_str):
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("Thiếu cấu hình Telegram Secrets!")
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID or not news_items:
+        print("Thiếu cấu hình hoặc không có tin tức!")
         return
 
     # Chuẩn bị nội dung tin nhắn
     message = f"<b>🔔 CẬP NHẬT THÔNG TIN THỊ TRƯỜNG {time_str}</b>\n\n"
     for item in news_items:
         row = f"{item['icon']} {item['title']} - <a href='{item['link']}'>chi tiết</a>\n\n"
-        # Giới hạn an toàn của Telegram là 4096 ký tự
         if len(message) + len(row) + len(FOOTER_TEXT_TELEGRAM) < 4000:
             message += row
         else:
             break
+            
     message += FOOTER_TEXT_TELEGRAM
+
+    # MẸO: Lấy link của bài viết đầu tiên chèn vào cuối tin nhắn dưới dạng một dấu chấm ẩn
+    # Điều này bắt ép Telegram phải lấy ảnh của bài đầu tiên để làm preview ở dưới cùng
+    first_item_link = news_items[0]['link']
+    message += f"<a href='{first_item_link}'>&#8205;</a>" # Khung trắng ẩn không gây xấu tin nhắn
 
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
         "text": message,
         "parse_mode": "HTML",
-        # "disable_web_page_preview": True
+        # --- CẤU HÌNH ĐỂ HIỆN DƯỚI CÙNG VÀ ẢNH TO ---
         "link_preview_options": {
             "is_disabled": False,             # Bật xem trước liên kết
-            "prefer_large_media": True,       # Ép hiển thị ảnh to như bản tin gốc
-            "show_above_text": True           # Đưa hình ảnh lên phía trên danh sách chữ
+            "prefer_large_media": True,       # Giữ ảnh to đẹp
+            "show_above_text": False          # KHÔNG đưa lên đầu nữa, mặc định nằm dưới cùng
         }
     }
 
@@ -336,15 +340,14 @@ def send_telegram(news_items, time_str):
     max_retries = 3
     for attempt in range(max_retries):
         try:
-            # Thêm timeout=20 để không bị treo nếu mạng chậm
             response = requests.post(url, json=payload, timeout=30)
             response.raise_for_status()
             print("✅ Đã gửi Telegram thành công!")
-            return # Thoát hàm nếu thành công
+            return 
         except Exception as e:
             print(f"⚠️ Lần thử {attempt + 1} thất bại: {e}")
             if attempt < max_retries - 1:
-                time.sleep(10) # Đợi 10 giây trước khi thử lại
+                time.sleep(10)
             else:
                 print("❌ Đã thử 3 lần nhưng vẫn không thể gửi Telegram.")
 
