@@ -179,7 +179,11 @@ def get_icon(title):
         # --- BỔ SUNG MỚI ---
         'mục tiêu', 'dòng tiền', 'kích thích', 'thành công', 'hiệu quả', 'tiềm năng', 'chủ động', 
         'được phê duyệt', 'bứt phá', 'tăng tốc', 'tích cực', 'nới lỏng', 'bùng nổ','muốn xây','đầu tư',
-        'hồi sinh','mở rộng','ký hợp tác','đổ bộ'
+        'hồi sinh','mở rộng','ký hợp tác','đổ bộ',
+        # --- BỔ SUNG MỚI THÊM ---
+        'đón sóng', 'gom ròng', 'mua ròng', 'hút tiền', 'bơm', 'đột biến', 'xanh sàn', 'trần',
+        'bứt tốc', 'vượt kế hoạch', 'lội ngược dòng', 'thắng lớn', 'thặng dư', 'tin tích cực',
+        'hưởng lợi', 'dẫn dắt', 'sóng lớn', 'ký kết', 'khởi công', 'vươn lên', 'vượt mong đợi'
     
     ]
 
@@ -191,7 +195,11 @@ def get_icon(title):
         # --- BỔ SUNG MỚI ---
         'bất ổn', 'nguy cơ', 'thiếu hụt', 'rào cản', 'áp lực', 'đình trệ', 'tê liệt', 
         'cảnh báo', 'thua lỗ', 'tụt dốc', 'phải trả', 'đổ vỡ','khổ trăm bề','thoái vốn', 'thoái sạch',
-        'biến động','ngõ cụt', 'thu giữ'
+        'biến động','ngõ cụt', 'thu giữ',
+        # --- BỔ SUNG MỚI THÊM ---
+        'áp lực bán', 'bán ròng', 'đỏ sàn', 'giảm sâu', 'lau sàn', 'giảm mạnh', 'bốc hơi',
+        'rút vốn', 'nợ xấu', 'hủy niêm yết', 'đình chỉ', 'cưỡng chế', 'bị phạt', 'xử phạt',
+        'lao dốc', 'sụt giảm', 'kém sắc', 'u ám', 'tháo chạy', 'hụt hơi', 'gánh nặng'
     ]
 
     if any(w in title_lower for w in positive_keywords):
