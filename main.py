@@ -324,7 +324,12 @@ def send_telegram(news_items, time_str):
         "chat_id": TELEGRAM_CHAT_ID,
         "text": message,
         "parse_mode": "HTML",
-        "disable_web_page_preview": True
+        # "disable_web_page_preview": True
+        "link_preview_options": {
+            "is_disabled": False,             # Bật xem trước liên kết
+            "prefer_large_media": True,       # Ép hiển thị ảnh to như bản tin gốc
+            "show_above_text": True           # Đưa hình ảnh lên phía trên danh sách chữ
+        }
     }
 
     # --- CƠ CHẾ THỬ LẠI (RETRY) ---
