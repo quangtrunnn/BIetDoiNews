@@ -18,18 +18,18 @@ jobs:
       # 1. TẢI CACHE (RESTORE): Đọc file sent_links.txt cũ
       - name: Restore Sent Links Cache
         id: cache-restore 
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: sent_links.txt
           key: ${{ runner.os }}-sent-links-${{ hashFiles('main.py') }} 
 
       # 2. Checkout code (Giữ nguyên)
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 3. Setup Python (Giữ nguyên)
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
@@ -47,7 +47,7 @@ jobs:
         
       # 6. LƯU CACHE (SAVE): LƯU file sent_links.txt mới
       - name: Save Sent Links Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         # if: always() đảm bảo bước này chạy kể cả khi bot không tìm thấy tin mới (để lưu cache)
         if: always() 
         with:
