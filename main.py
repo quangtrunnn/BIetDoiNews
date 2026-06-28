@@ -171,41 +171,48 @@ FOOTER_TEXT_TELEGRAM = """
 def get_icon(title):
     title_lower = title.lower()
 
-    # Keywords Tích cực (Bổ sung thêm từ khóa về mục tiêu, dòng tiền, hiệu quả)
+    # Keywords Tích cực (Thị trường đi lên, chính sách hỗ trợ, dòng tiền mạnh, kết quả KD tốt)
     positive_keywords = [
-        'tăng', 'lãi', 'vượt', 'đỉnh', 'khởi sắc', 'hồi phục', 'chính thức', 'tin vui',
-        'ổn định', 'mở cửa', 'thúc đẩy', 'hỗ trợ', 'tăng trưởng', 'đóng góp', 'phát triển',
-        'kỷ lục', 'giải ngân', 'thu hút', 'phục hồi', 'chính thức', 'động lực', 'mạnh mẽ',
-        # --- BỔ SUNG MỚI ---
-        'mục tiêu', 'dòng tiền', 'kích thích', 'thành công', 'hiệu quả', 'tiềm năng', 'chủ động', 
-        'được phê duyệt', 'bứt phá', 'tăng tốc', 'tích cực', 'nới lỏng', 'bùng nổ','muốn xây','đầu tư',
-        'hồi sinh','mở rộng','ký hợp tác','đổ bộ',
-        # --- BỔ SUNG MỚI THÊM ---
-        'đón sóng', 'gom ròng', 'mua ròng', 'hút tiền', 'bơm', 'đột biến', 'xanh sàn', 'trần',
-        'bứt tốc', 'vượt kế hoạch', 'lội ngược dòng', 'thắng lớn', 'thặng dư', 'tin tích cực',
-        'hưởng lợi', 'dẫn dắt', 'sóng lớn', 'ký kết', 'khởi công', 'vươn lên', 'vượt mong đợi'
-    
+        # --- BỔ SUNG SIÊU CẤP MỚI ---
+        'vượt dự báo', 'lãi đậm', 'lãi khủng', 'lãi kỷ lục', 'đảo chiều tăng', 'tạo đáy xong',
+        'khối ngoại mua', 'đại gia ngoại', 'chia cổ tức', 'nới room', 'nâng hạng', 'sáng cửa', 
+        'về đích', 'bơm tiền', 'uptrend', 'vươn lên dẫn dắt', 'mở rộng quy mô', 'đạt đỉnh mới',
+        
+        # --- Danh sách cũ của bạn ---
+        'được phê duyệt', 'vượt mong đợi', 'vượt kế hoạch', 'lội ngược dòng', 'tin tích cực',
+        'ký hợp tác', 'thắng lớn', 'thặng dư', 'hưởng lợi', 'dẫn dắt', 'sóng lớn', 'khởi công', 
+        'đón sóng', 'gom ròng', 'mua ròng', 'hút tiền', 'đột biến', 'xanh sàn', 'giá trần', 
+        'bứt tốc', 'tin vui', 'khởi sắc', 'hồi phục', 'ổn định', 'mở cửa', 'thúc đẩy', 
+        'hỗ trợ', 'tăng trưởng', 'đóng góp', 'phát triển', 'kỷ lục', 'giải ngân', 'thu hút', 
+        'phục hồi', 'chính thức', 'động lực', 'mạnh mẽ', 'mục tiêu', 'dòng tiền', 'kích thích', 
+        'thành công', 'hiệu quả', 'tiềm năng', 'chủ động', 'bứt phá', 'tăng tốc', 'tích cực', 
+        'nới lỏng', 'bùng nổ', 'muán xây', 'đầu tư', 'hồi sinh', 'mở rộng', 'ký kết', 'đổ bộ', 
+        'vượt', 'đỉnh', 'tăng', 'lãi', 'bơm', 'trần'
     ]
 
-    # Keywords Tiêu cực (Bổ sung từ khóa về rủi ro, áp lực, trì trệ)
+    # Keywords Tiêu cực (Thị trường sập, rủi ro pháp lý, áp lực bán, nợ nần, thanh tra)
     negative_keywords = [
-        'giảm', 'lỗ', 'thủng', 'đáy', 'bán tháo', 'lao dốc', 
-        'siết chặt', 'kiểm tra', 'thanh tra', 'điều tra', 'phạt', 'khẩn cấp',
-        'khó khăn', 'suy giảm', 'vỡ nợ', 'thách thức', 'đóng băng', 'thận trọng',
-        # --- BỔ SUNG MỚI ---
-        'bất ổn', 'nguy cơ', 'thiếu hụt', 'rào cản', 'áp lực', 'đình trệ', 'tê liệt', 
-        'cảnh báo', 'thua lỗ', 'tụt dốc', 'phải trả', 'đổ vỡ','khổ trăm bề','thoái vốn', 'thoái sạch',
-        'biến động','ngõ cụt', 'thu giữ',
-        # --- BỔ SUNG MỚI THÊM ---
-        'áp lực bán', 'bán ròng', 'đỏ sàn', 'giảm sâu', 'lau sàn', 'giảm mạnh', 'bốc hơi',
-        'rút vốn', 'nợ xấu', 'hủy niêm yết', 'đình chỉ', 'cưỡng chế', 'bị phạt', 'xử phạt',
-        'lao dốc', 'sụt giảm', 'kém sắc', 'u ám', 'tháo chạy', 'hụt hơi', 'gánh nặng'
+        # --- BỔ SUNG SIÊU CẤP MỚI ---
+        'hủy niêm yết', 'margin call', 'giải chấp', 'trắng bên mua', 'kẹt dòng tiền', 
+        'vướng mắc', 'khởi tố', 'bắt giam', 'sai phạm', 'bê bối', 'scandal', 'bay màu', 
+        'hụt thu', 'âm vốn', 'kiệt quệ', 'downtrend', 'bốc hơi nghìn tỷ', 'hụt hơi',
+        
+        # --- Danh sách cũ của bạn ---
+        'áp lực bán', 'khổ trăm bề', 'thoái vốn', 'thoái sạch', 'biến động', 'thu giữ', 
+        'bán ròng', 'đỏ sàn', 'giảm sâu', 'lau sàn', 'giảm mạnh', 'bốc hơi', 'rút vốn', 
+        'nợ xấu', 'đình chỉ', 'cưỡng chế', 'bị phạt', 'xử phạt', 'lao dốc', 'sụt giảm', 
+        'kém sắc', 'u ám', 'tháo chạy', 'gánh nặng', 'siết chặt', 'kiểm tra', 'thanh tra', 
+        'điều tra', 'khẩn cấp', 'khó khăn', 'suy giảm', 'vỡ nợ', 'thách thức', 'đóng băng', 
+        'thận trọng', 'bất ổn', 'nguy cơ', 'thiếu hụt', 'rào cản', 'áp lực', 'đình trệ', 
+        'tê liệt', 'cảnh báo', 'thua lỗ', 'tụt dốc', 'phải trả', 'đổ vỡ', 'ngõ cụt', 
+        'giảm', 'lỗ', 'thủng', 'đáy', 'bán tháo', 'phạt'
     ]
 
-    if any(w in title_lower for w in positive_keywords):
-        return "🟢"
-    elif any(w in title_lower for w in negative_keywords):
+    # Ưu tiên quét Tiêu cực trước để tránh bắt sót các bài kiểu "Áp lực giảm lãi suất" hay "Nguy cơ giảm tăng trưởng"
+    if any(w in title_lower for w in negative_keywords):
         return "🔴"
+    elif any(w in title_lower for w in positive_keywords):
+        return "🟢"
     else:
         return "🟡"
 
