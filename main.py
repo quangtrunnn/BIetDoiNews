@@ -167,52 +167,92 @@ FOOTER_TEXT_TELEGRAM = """
 🟢 Tích cực       🟡 Trung lập       🔴 Tiêu cực
 """
 
-# Hàm xác định màu icon
+# Hàm xác định màu icon nâng cấp toàn diện
 def get_icon(title):
     title_lower = title.lower()
 
-    # Keywords Tích cực (Thị trường đi lên, chính sách hỗ trợ, dòng tiền mạnh, kết quả KD tốt)
+    # =========================================================================
+    # KỊCH BẢN TÍCH CỰC (🟢): Thị trường uptrend, phục hồi, giải cứu, làm ăn tốt
+    # =========================================================================
     positive_keywords = [
-        # --- BỔ SUNG SIÊU CẤP MỚI ---
-        'vượt dự báo', 'lãi đậm', 'lãi khủng', 'lãi kỷ lục', 'đảo chiều tăng', 'tạo đáy xong',
-        'khối ngoại mua', 'đại gia ngoại', 'chia cổ tức', 'nới room', 'nâng hạng', 'sáng cửa', 
-        'về đích', 'bơm tiền', 'uptrend', 'vươn lên dẫn dắt', 'mở rộng quy mô', 'đạt đỉnh mới',
+        # 1. Cụm từ "hóa giải" tin xấu / Hành động giải cứu của Chính phủ
+        'tháo gỡ khó khăn', 'tháo gỡ vướng mắc', 'xử lý vướng mắc', 'giải cứu', 
+        'vượt khó', 'khơi thông dòng vốn', 'khơi thông dòng tiền', 'nới lỏng tiền tệ',
+        'hạ lãi suất', 'giảm lãi suất', 'hoãn nợ', 'giãn nợ', 'gia hạn nợ',
+        'cứu vớt', 'hồi sinh', 'vực dậy', 'tiếp sức', 'tiếp máu', 'bơm thêm vốn',
+
+        # 2. Thuật ngữ Chứng khoán & Dòng tiền (Uptrend)
+        'đón sóng', 'gom ròng', 'mua ròng', 'hút tiền', 'bơm tiền', 'dòng tiền vào',
+        'khối ngoại mua', 'đại gia ngoại', 'cá mập gom', 'tự doanh mua', 'nâng hạng',
+        'nới room', 'nới trần', 'xanh sàn', 'giá trần', 'tăng trần', 'kịch trần',
+        'uptrend', 'bứt tốc', 'bứt phá', 'tăng tốc', 'bùng nổ', 'tạo đáy xong',
+        'đảo chiều tăng', 'vượt đỉnh', 'lội ngược dòng', 'phá kỷ lục', 'đạt đỉnh mới',
+        'sóng lớn', 'con sóng', 'dẫn dắt thị trường', 'trụ vững', 'giữ vững sắc xanh',
+
+        # 3. Kết quả kinh doanh & Doanh nghiệp (Tin tốt)
+        'lãi đậm', 'lãi khủng', 'lãi kỷ lục', 'lãi vượt', 'vượt mong đợi', 'vượt dự báo',
+        'vượt kế hoạch', 'tin tích cực', 'tin vui', 'khởi sắc', 'hồi phục', 'phục hồi',
+        'thắng lớn', 'thặng dư', 'hưởng lợi', 'về đích', 'sáng cửa', 'được phê duyệt',
+        'ký hợp tác', 'ký kết', 'khởi công', 'muốn xây', 'đổ bộ', 'mở rộng quy mô',
+        'chia cổ tức', 'thâu tóm thành công', 'm&a thành công', 'rót vốn',
+
+        # 4. Vĩ mô tốt & Động lực phát triển
+        'ổn định', 'mở cửa', 'thúc đẩy', 'hỗ trợ', 'tăng trưởng', 'đóng góp', 'phát triển',
+        'giải ngân', 'thu hút', 'động lực', 'mạnh mẽ', 'mục tiêu', 'kích thích', 'thành công',
+        'hiệu quả', 'tiềm năng', 'chủ động', 'tích cực', 'đầu tư', 'vươn lên', 'kỷ lục',
         
-        # --- Danh sách cũ của bạn ---
-        'được phê duyệt', 'vượt mong đợi', 'vượt kế hoạch', 'lội ngược dòng', 'tin tích cực',
-        'ký hợp tác', 'thắng lớn', 'thặng dư', 'hưởng lợi', 'dẫn dắt', 'sóng lớn', 'khởi công', 
-        'đón sóng', 'gom ròng', 'mua ròng', 'hút tiền', 'đột biến', 'xanh sàn', 'giá trần', 
-        'bứt tốc', 'tin vui', 'khởi sắc', 'hồi phục', 'ổn định', 'mở cửa', 'thúc đẩy', 
-        'hỗ trợ', 'tăng trưởng', 'đóng góp', 'phát triển', 'kỷ lục', 'giải ngân', 'thu hút', 
-        'phục hồi', 'chính thức', 'động lực', 'mạnh mẽ', 'mục tiêu', 'dòng tiền', 'kích thích', 
-        'thành công', 'hiệu quả', 'tiềm năng', 'chủ động', 'bứt phá', 'tăng tốc', 'tích cực', 
-        'nới lỏng', 'bùng nổ', 'muán xây', 'đầu tư', 'hồi sinh', 'mở rộng', 'ký kết', 'đổ bộ', 
-        'vượt', 'đỉnh', 'tăng', 'lãi', 'bơm', 'trần'
+        # 5. Từ đơn tích cực (Quét sau cùng)
+        'tăng', 'lãi', 'vượt', 'đỉnh', 'bơm', 'trần', 'xanh'
     ]
 
-    # Keywords Tiêu cực (Thị trường sập, rủi ro pháp lý, áp lực bán, nợ nần, thanh tra)
+    # =========================================================================
+    # KỊCH BẢN TIÊU CỰC (🔴): Khủng hoảng, sập sàn, pháp lý, chiến tranh, nợ nần
+    # =========================================================================
     negative_keywords = [
-        # --- BỔ SUNG SIÊU CẤP MỚI ---
-        'hủy niêm yết', 'margin call', 'giải chấp', 'trắng bên mua', 'kẹt dòng tiền', 
-        'vướng mắc', 'khởi tố', 'bắt giam', 'sai phạm', 'bê bối', 'scandal', 'bay màu', 
-        'hụt thu', 'âm vốn', 'kiệt quệ', 'downtrend', 'bốc hơi nghìn tỷ', 'hụt hơi',
-        
-        # --- Danh sách cũ của bạn ---
-        'áp lực bán', 'khổ trăm bề', 'thoái vốn', 'thoái sạch', 'biến động', 'thu giữ', 
-        'bán ròng', 'đỏ sàn', 'giảm sâu', 'lau sàn', 'giảm mạnh', 'bốc hơi', 'rút vốn', 
-        'nợ xấu', 'đình chỉ', 'cưỡng chế', 'bị phạt', 'xử phạt', 'lao dốc', 'sụt giảm', 
-        'kém sắc', 'u ám', 'tháo chạy', 'gánh nặng', 'siết chặt', 'kiểm tra', 'thanh tra', 
-        'điều tra', 'khẩn cấp', 'khó khăn', 'suy giảm', 'vỡ nợ', 'thách thức', 'đóng băng', 
-        'thận trọng', 'bất ổn', 'nguy cơ', 'thiếu hụt', 'rào cản', 'áp lực', 'đình trệ', 
-        'tê liệt', 'cảnh báo', 'thua lỗ', 'tụt dốc', 'phải trả', 'đổ vỡ', 'ngõ cụt', 
-        'giảm', 'lỗ', 'thủng', 'đáy', 'bán tháo', 'phạt'
+        # 1. Rủi ro Hệ thống / Kỹ thuật Chứng khoán (Downtrend)
+        'áp lực bán', 'bán tháo', 'lao dốc', 'giảm sâu', 'giảm mạnh', 'sụt giảm',
+        'cắm đầu', 'bốc hơi', 'bay màu', 'bốc hơi nghìn tỷ', 'tháo chạy', 'hụt hơi',
+        'gánh nặng', 'u ám', 'kém sắc', 'đỏ sàn', 'lau sàn', 'nằm sàn', 'giảm sàn',
+        'trắng bên mua', 'mất thanh khoản', 'downtrend', 'margin call', 'giải chấp',
+        'bị bán ròng', 'khối ngoại bán', 'rút vốn', 'rút ròng', 'di tản dòng tiền',
+        'hủy niêm yết', 'vỡ trận', 'sập sàn', 'thủng đáy', 'phá đáy',
+
+        # 2. Rủi ro Doanh nghiệp & Nợ nần
+        'nợ xấu', 'vỡ nợ', 'thua lỗ', 'lỗ nặng', 'lỗ kỷ lục', 'lỗ ròng', 'âm vốn',
+        'hụt thu', 'kiệt quệ', 'khổ trăm bề', 'thoái vốn', 'thoái sạch', 'kẹt dòng tiền',
+        'đóng băng', 'tê liệt', 'đình trệ', 'rào cản', 'vướng mắc', 'khó khăn', 'thách thức',
+        'đình chỉ', 'cưỡng chế', 'bị phạt', 'xử phạt', 'nộp phạt', 'phạt tiền',
+
+        # 3. Rủi ro Pháp lý / Thanh tra (Tin cực độc cho chứng khoán)
+        'khởi tố', 'bắt giam', 'tạm giam', 'sai phạm', 'bê bối', 'scandal', 'điều tra',
+        'thanh tra', 'kiểm tra', 'siết chặt', 'thắt chặt', 'thao túng', 'gian lận',
+        'lừa đảo', 'chiếm đoạt', 'bị cáo', 'hầu tòa', 'kỷ luật', 'truy thu',
+
+        # 4. Địa chính trị / Thiên tai / Chiến tranh (Vĩ mô xấu)
+        'tấn công', 'trả đũa', 'xung đột', 'chiến tranh', 'leo thang', 'bắn phá',
+        'giao tranh', 'trừng phạt', 'cấm vận', 'không kích', 'tên lửa', 'nổ súng',
+        'khiêu khích', 'đe dọa', 'bất ổn chính trị', 'bạo loạn', 'khủng bố', 'đảo chính',
+        'nguy cơ', 'bất ổn', 'thiếu hụt', 'khẩn cấp', 'thận trọng', 'cảnh báo', 'đổ vỡ',
+        'ngõ cụt', 'thu giữ', 'biến động', 'phải trả', 'tụt dốc',
+
+        # 5. Từ đơn tiêu cực (Quét sau cùng)
+        'giảm', 'lỗ', 'thủng', 'đáy', 'phạt', 'đỏ', 'sập', 'bắt'
     ]
 
-    # Ưu tiên quét Tiêu cực trước để tránh bắt sót các bài kiểu "Áp lực giảm lãi suất" hay "Nguy cơ giảm tăng trưởng"
-    if any(w in title_lower for w in negative_keywords):
-        return "🔴"
-    elif any(w in title_lower for w in positive_keywords):
+    # =========================================================================
+    # LOGIC QUET THÔNG MINH
+    # =========================================================================
+    # Bước 1: Quét Tích cực trước vì các CỤM TỪ GHÉP dài giải cứu nằm ở đây (ví dụ: "tháo gỡ khó khăn")
+    if any(w in title_lower for w in positive_keywords):
+        # Mẹo phụ: Check lại xem có từ phủ định biến tốt thành xấu không (ví dụ: "lãi kỷ lục bị từ chối")
+        # Nhưng với RSS đa số cụm từ ghép ở trên đã đủ an toàn.
         return "🟢"
+        
+    # Bước 2: Quét Tiêu cực sau khi đã loại trừ các cụm từ giải cứu
+    elif any(w in title_lower for w in negative_keywords):
+        return "🔴"
+        
+    # Bước 3: Không dính chữ nào ở trên => Trung lập
     else:
         return "🟡"
 
