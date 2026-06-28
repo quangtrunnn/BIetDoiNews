@@ -338,7 +338,7 @@ def send_telegram(news_items, time_str):
         "parse_mode": "HTML",
         # --- CẤU HÌNH ĐỂ HIỆN DƯỚI CÙNG VÀ ẢNH TO ---
         "link_preview_options": {
-            "is_disabled": True,             # Bật xem trước liên kết
+            "is_disabled": False,             # Bật xem trước liên kết
             "prefer_large_media": True,       # Giữ ảnh to đẹp
             "show_above_text": False          # KHÔNG đưa lên đầu nữa, mặc định nằm dưới cùng
         }
