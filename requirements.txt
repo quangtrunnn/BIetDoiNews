@@ -1,6 +1,9 @@
 requests
-git+https://github.com/thinh-vu/vnstock.git
 pandas
 pytz
 feedparser
 lxml
+beautifulsoup4
+pydantic
+openpyxl
+tenacity
