@@ -1,5 +1,6 @@
+--extra-index-url https://pypi.vnstock.site/simple
 requests
-git+https://github.com/thinh-vu/vnstock.git
+vnstock
 pandas
 pytz
 feedparser
