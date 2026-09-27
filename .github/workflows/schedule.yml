@@ -37,7 +37,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          # 1. Cài các thư viện tiêu chuẩn từ requirements.txt
           pip install -r requirements.txt
+          # 2. Cài vnstock từ GitHub nhưng BỎ QUA kiểm tra thư viện phụ thuộc vnai
+          pip install --no-deps git+https://github.com/thinh-vu/vnstock.git
       # 5. CHẠY BOT (File sent_links.txt được cập nhật)
       - name: Run Bot
         env:
